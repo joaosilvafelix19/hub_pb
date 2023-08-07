@@ -17,16 +17,20 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 
 # Definindo diretório
 #os.chdir("C:\\Users\\joaos\\Documents\\MeusProjetos\\hub_pb\\dados")
-root = os.getcwd()
-if root[0] == '/':
-    root = '/app/hub_pb/'
-else:
-    root = os.path.abspath('../..')
-path = '/dados'
+# Obter o caminho absoluto para a pasta "dados"
+path = os.path.abspath('dados')
 
+# Nome do arquivo Excel
+file_name = 'pnad.xlsx'
+
+# Combinar o caminho com o nome do arquivo para obter o caminho completo
+excel_file = os.path.join(path, file_name)
+
+# Ler o Excel em um DataFrame
+rais = pd.read_excel(excel_file)
 
 # Importando os dados
-pnad = pd.read_excel(f"{root}{path}/pnad.xlsx")
+pnad = pd.read_excel(excel_file)
 pnad1 = pnad
 
 # Dropando colunas
