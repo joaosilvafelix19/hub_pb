@@ -29,6 +29,7 @@ ens_sup = pd.read_excel(excel_file)
 
 # Arredondando
 ens_sup['taxa'] = ens_sup['taxa'].round(0)
+dados_regisoes = ens_sup
 
 # DataFrame com a logintude dos estados
 soybean = pd.read_csv('https://raw.githubusercontent.com/nayanemaia/Dataset_Soja/main/soja%20sidra.csv')
@@ -105,7 +106,7 @@ st.header("Taxa a cada 100 mil habitantes por região")
 st.write("Abaixo mostra-se como evoluiu a taxa de estudantes de tecnologia para cada região do país (considerando apenas as capitais.) ")
 
 # Média por região e por ano
-regioes = pd.DataFrame(ens_sup.groupby(["regiao","ano"])["taxa"].mean())
+regioes = pd.DataFrame(dados_regioes.groupby(["regiao","ano"])["taxa"].mean())
 
 # Arredondando valores
 regioes['taxa'] = regioes['taxa'].round(0)
