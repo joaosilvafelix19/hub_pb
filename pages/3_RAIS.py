@@ -87,7 +87,7 @@ st.write("Por fim, verifica-se como estão distribuidos os tipos de profissionai
 rais2021 = pd.read_excel(excel_file)
 
 # removendo os dados faltantes
-rais2021 = rais2021.dropna()
+#rais2021 = rais2021.dropna()
 
 # Transformando de object para float
 rais2021['Aracaju - SE'] = rais2021['Aracaju - SE'].astype(float)
