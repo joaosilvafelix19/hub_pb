@@ -15,11 +15,14 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 # Manipulação e importação dos dados
 #-------------------------------------------------------------------------------------------------------------
 
-# Obter o caminho absoluto do diretório do script
-script_dir = os.path.dirname(os.path.abspath(__file__))
+# Obter o caminho absoluto para a pasta "dados"
+path = os.path.abspath('dados')
+
+# Nome do arquivo Excel
+file_name = 'ens_sup.xlsx'
 
 # Combinar o caminho com o nome do arquivo para obter o caminho completo
-excel_file = os.path.join(script_dir, 'dados', 'ens_sup.xlsx')
+excel_file = os.path.join(path, file_name)
 
 # Ler o Excel em um DataFrame
 ens_sup = pd.read_excel(excel_file)
