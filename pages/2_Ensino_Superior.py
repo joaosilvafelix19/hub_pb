@@ -8,7 +8,6 @@ import json
 from urllib.request import urlopen
 import plotly.graph_objects as go
 
-from streamlit_aggrid import st_aggrid
 #-------------------------------------------------------------------------------------------------------------
 # Manipulação e importação dos dados
 #-------------------------------------------------------------------------------------------------------------
@@ -131,8 +130,8 @@ tab_regiao.rename({'regiao': 'Região', 'taxa':'Taxa'}, axis=1, inplace=True)
 st.title('Taxa de estudantes de tecnologia')
 
 col1, col2 = st.columns(2)
+
 with col1:
-    st.title('Tabela de Região')
     st_aggrid(df_tab_regiao)
    
 with col2:
