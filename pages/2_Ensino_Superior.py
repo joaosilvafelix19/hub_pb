@@ -124,7 +124,7 @@ fig_regioes = px.line(regioes, x='ano', y="taxa", title='', color='regiao',
                  })
 st.plotly_chart(fig_regioes, use_container_width=True)
 
-col1, col2 = st.beta_columns([2, 3])
+col1, col2 = st.columns(2)
 
 with col1:
     tab_regiao = dados_regioes.groupby("regiao")["taxa"].mean().reset_index()
