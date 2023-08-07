@@ -8,7 +8,7 @@ import json
 from urllib.request import urlopen
 import plotly.graph_objects as go
 
-from IPython import display
+import IPython
 
 #-------------------------------------------------------------------------------------------------------------
 # Manipulação e importação dos dados
