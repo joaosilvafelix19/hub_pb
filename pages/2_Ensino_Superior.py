@@ -20,7 +20,7 @@ root = os.getcwd()
 
 # Check if the current OS is Windows (NT) or not (for Unix-like systems)
 if os.name == 'nt':
-    path = os.path.join(root, 'C:\Users\joaos\Documents\MeusProjetos\hub_pb\dados')  # Replace 'path' with the actual path for Windows
+    path = os.path.join(root, 'C:/Users/joaos/Documents/MeusProjetos/hub_pb/dados')  # Replace 'path' with the actual path for Windows
 else:
     path = os.path.abspath('../..')
 
