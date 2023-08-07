@@ -136,7 +136,7 @@ with col1:
     df_tab_regiao = pd.DataFrame(tab_regiao)
 
     # Exibição usando Streamlit
-    st.title('Tabela de Região')
+    st.subtitle('Tabela de Região')
     st.dataframe(df_tab_regiao)
         
 with col2:
