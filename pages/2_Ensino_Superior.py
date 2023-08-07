@@ -126,6 +126,8 @@ tab_regiao = dados_regioes.groupby("regiao")["taxa"].mean().reset_index()
 tab_regiao = tab_regiao.sort_values(by=['taxa'], ascending=False)
 tab_regiao['taxa'] = tab_regiao['taxa'].round(2)
 tab_regiao.rename({'regiao': 'Região', 'taxa':'Taxa'}, axis=1, inplace=True)
+compact_data = tab_regiao.set_index('Região').T
+compact_data.columns.name = None
 
 st.title('Taxa de estudantes de tecnologia')
 
@@ -133,7 +135,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     # Criação da representação HTML da tabela
-    html_table = tab_regiao.to_html(index=False)
+    html_table = compact_data.to_html(index=False)
 
     # Exibição da tabela usando HTML
     st.write(html_table, unsafe_allow_html=True)
