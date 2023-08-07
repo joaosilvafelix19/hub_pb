@@ -90,8 +90,8 @@ rais2021 = pd.read_excel(excel_file, skiprows=1)
 rais2021 = rais2021.dropna()
 
 # Transformando de object para float
-#rais2021['Aracaju - SE'] = rais2021['Aracaju - SE'].astype(float)
-#rais2021['Belo Horizonte - MG'] = rais2021['Belo Horizonte - MG'].astype(float)
+rais2021['Aracaju - SE'] = rais2021['Aracaju - SE'].astype(float)
+rais2021['Belo Horizonte - MG'] = rais2021['Belo Horizonte - MG'].astype(float)
 
 # Mantendo palavras chaves das profissões de interesse
 rais2021 = rais2021[rais2021['CBO Ocupação 2002'].str.contains("TECNOLOGIA")
@@ -145,8 +145,6 @@ rais2021['CBO Ocupação 2002'] = [x.replace('PROGRAMADOR DE SISTEMAS DE INFORMA
 rais2021['CBO Ocupação 2002'] = [x.replace('PROGRAMADOR DE MULTIMIDIA', 'Programador de multimidia.') for x in rais2021['CBO Ocupação 2002']]
 rais2021['CBO Ocupação 2002'] = [x.replace('TECNICO DE APOIO AO USUARIO DE INFORMATICA (HELPDESK)', 'Técnico de apoio ao usu. de informática (Helpdesk)') for x in rais2021['CBO Ocupação 2002']]
 rais2021['CBO Ocupação 2002'] = [x.replace('PROFESSOR DE TECNOLOGIA E CALCULO TECNICO', 'Técnico de apoio ao usu. de informática (Helpdesk)') for x in rais2021['CBO Ocupação 2002']]
-
-
 
 # Criando uma caixa de seleção
 escolha = st.selectbox(
