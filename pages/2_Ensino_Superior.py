@@ -129,7 +129,7 @@ tab_regiao = tab_regiao.sort_values(by=['taxa'], ascending=False)
 tab_regiao['taxa'] = tab_regiao['taxa'].round(2)
 tab_regiao.rename({'regiao': 'Região', 'taxa':'Taxa'}, axis=1, inplace=True)
 
-st.title('Tabela de Região')
+st.title('Taxa de estudantes de tecnologia')
 
 col1, col2 = st.columns(2)
 with col1:
