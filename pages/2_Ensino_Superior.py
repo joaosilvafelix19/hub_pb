@@ -126,17 +126,18 @@ st.plotly_chart(fig_regioes, use_container_width=True)
 
 col1, col2 = st.columns(2)
 
-tab_regiao = dados_regioes.groupby("regiao")["taxa"].mean().reset_index()
-tab_regiao = tab_regiao.sort_values(by=['taxa'], ascending=False)
-tab_regiao['taxa'] = tab_regiao['taxa'].round(2)
-tab_regiao.rename({'regiao': 'Região', 'taxa':'Taxa'}, axis=1, inplace=True)
+with col1:
+    tab_regiao = dados_regioes.groupby("regiao")["taxa"].mean().reset_index()
+    tab_regiao = tab_regiao.sort_values(by=['taxa'], ascending=False)
+    tab_regiao['taxa'] = tab_regiao['taxa'].round(2)
+    tab_regiao.rename({'regiao': 'Região', 'taxa':'Taxa'}, axis=1, inplace=True)
 
-# Converta a Series tab_regiao para um DataFrame
-df_tab_regiao = pd.DataFrame(tab_regiao)
+    # Converta a Series tab_regiao para um DataFrame
+    df_tab_regiao = pd.DataFrame(tab_regiao)
 
-# Exibição usando Streamlit
-st.title('Tabela de Região')
-st.dataframe(df_tab_regiao)
+    # Exibição usando Streamlit
+    st.title('Tabela de Região')
+    st.dataframe(df_tab_regiao)
         
 with col2:
     st.write("Ao lado, é mostrado a taxa de estudantes de tecnologia para as 5 grandes regiões brasileiras, as taxas ao lado leva em consideração todo o período de análise (2012-2021). Como é visto, as região sul e sudeste apresentam as maiores taxas, a região norte é aquela com a menor taxa do país.")
