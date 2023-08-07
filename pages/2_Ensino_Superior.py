@@ -17,10 +17,10 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 
 # Definindo diretório
 root = os.getcwd()
-if root[0] == '/':
-    root = '/'
+if root[0] == '//':
+    root = '//'
 else:
-    root = os.path.abspath('....')
+    root = os.path.abspath('../..')
 path = '/MeusProjetos/hub_pb/dados'
 
 # Arredondando
