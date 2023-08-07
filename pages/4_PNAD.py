@@ -131,7 +131,7 @@ st.header('Taxa de doutorandos no segundo trimestre de 2019 a cada 100 000 habit
 
 st.write('Dados não disponíveis para Mato Grosso e Piauí, para o segundo semestre de 2019')
 
-pnad1 = pd.read_excel(f"{root}{path}/pnad.xlsx")
+pnad1 = pd.read_excel(excel_file)
 
 pnad1 = pnad1.drop(['Unnamed: 0'], axis=1)
 pnad1.rename(columns={"Ano": "ano", "Trimestre":"trimestre", "UF":"uf",
