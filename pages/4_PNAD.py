@@ -8,6 +8,9 @@ import plotly as plt
 
 import plotly.graph_objects as go
 
+from st_aggrid import AgGrid
+from st_aggrid.grid_options_builder import GridOptionsBuilder
+
 #-------------------------------------------------------------------------------------------------------------
 # Manipulação e importação dos dados
 #-------------------------------------------------------------------------------------------------------------
@@ -166,7 +169,10 @@ nd = nd[['uf', 'taxa']]
 nd.rename(columns={'uf':'Estado/Capital', 'taxa':'Taxa 100 000 Habitantes'}, inplace=True)
 nd = nd.sort_values(by=['Taxa 100 000 Habitantes'], ascending=False)
 nd['Taxa 100 000 Habitantes'] = nd['Taxa 100 000 Habitantes'].round(0)
-nd = nd[['Estado/Capital', 'Taxa 100 000 Habitantes']]
 
 # Parte 6
-st.dataframe(nd)
+gb = GridOptionsBuilder.from_dataframe(nd)
+gb.configure_pagination(enabled=True)
+gb.configure_default_column(editable=True, groupable=True)
+gridoptions = gb.build()
+AgGrid(nd, gridOptions=gridoptions, fit_columns_on_grid_load = True)
