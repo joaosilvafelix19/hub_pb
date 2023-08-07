@@ -18,7 +18,7 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 # Definindo diretório
 root = os.getcwd()
 if root[0] == '/':
-    root = '/MeusProjetos/hub_pb/'
+    root = '/'
 else:
     root = os.path.abspath('../..')
 path = '/MeusProjetos/hub_pb/dados'
