@@ -8,6 +8,8 @@ import json
 from urllib.request import urlopen
 import plotly.graph_objects as go
 
+import tempfile
+import webbrowser
 #-------------------------------------------------------------------------------------------------------------
 # Manipulação e importação dos dados
 #-------------------------------------------------------------------------------------------------------------
@@ -136,11 +138,14 @@ with col1:
     # Criação da tabela HTML
     html_table = df_tab_regiao.to_html(index=False)
     
-    # Crie um arquivo HTML e escreva o conteúdo da tabela
-    with open('tabela_regiao.html', 'w') as f:
-        f.write('<html><head></head><body>')
-        f.write(html_table)
-        f.write('</body></html>')
+    # Criar um arquivo HTML temporário e escrever o conteúdo da tabela
+    with tempfile.NamedTemporaryFile(suffix=".html", delete=False) as temp_file:
+        temp_file.write('<html><head></head><body>'.encode('utf-8'))
+        temp_file.write(html_table.encode('utf-8'))
+        temp_file.write('</body></html>'.encode('utf-8'))
+    
+    # Abrir o arquivo HTML temporário no navegador
+    webbrowser.open(temp_file.name)
         
 with col2:
     st.write("Ao lado, é mostrado a taxa de estudantes de tecnologia para as 5 grandes regiões brasileiras, as taxas ao lado leva em consideração todo o período de análise (2012-2021). Como é visto, as região sul e sudeste apresentam as maiores taxas, a região norte é aquela com a menor taxa do país.")
