@@ -136,7 +136,7 @@ with col1:
     html_table = tab_regiao.to_html(index=False)
 
     # Exibição da tabela usando HTML
-    st.write(html_table, unsafe_allow_html=True)
+    st.table(html_table, unsafe_allow_html=True)
    
 with col2:
     st.write("Ao lado, é mostrado a taxa de estudantes de tecnologia para as 5 grandes regiões brasileiras, as taxas ao lado leva em consideração todo o período de análise (2012-2021). Como é visto, as região sul e sudeste apresentam as maiores taxas, a região norte é aquela com a menor taxa do país.")
