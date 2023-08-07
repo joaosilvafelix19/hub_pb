@@ -17,11 +17,11 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 
 # Definindo diretório
 root = os.getcwd()
-if root[0] == '//':
-    root = '//'
+if root[0] == '/':
+    root = '/app/hub_pb/'
 else:
     root = os.path.abspath('../..')
-path = 'MeusProjetos/hub_pb/dados'
+path = '/MeusProjetos/hub_pb/dados'
 
 # Arredondando
 ens_sup = pd.read_excel(f"{root}{path}/ens_sup.xlsx")
