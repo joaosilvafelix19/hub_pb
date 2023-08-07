@@ -90,8 +90,9 @@ rais2021 = pd.read_excel(excel_file)
 rais2021 = rais2021.dropna()
 
 # Transformando de object para float
-rais2021['Aracaju - SE'] = rais2021['Aracaju - SE'].astype(float)
-rais2021['Belo Horizonte - MG'] = rais2021['Belo Horizonte - MG'].astype(float)
+rais2021['Aracaju - SE'] = pd.to_numeric(rais2021['Aracaju - SE'], errors='coerce').astype(float)
+#rais2021['Belo Horizonte - MG'] = rais2021['Belo Horizonte - MG'].astype(float)
+rais2021['Belo Horizonte - MG'] = pd.to_numeric(rais2021['Belo Horizonte - MG'], errors='coerce').astype(float)
 
 # Mantendo palavras chaves das profissões de interesse
 rais2021 = rais2021[rais2021['CBO Ocupação 2002'].str.contains("TECNOLOGIA")
