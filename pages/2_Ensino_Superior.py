@@ -15,16 +15,16 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 # Manipulação e importação dos dados
 #-------------------------------------------------------------------------------------------------------------
 
-# Definindo diretório
-root = os.getcwd()
-if root[0] == '/':
-    root = '/'
-else:
-    root = os.path.abspath('../..')
-path = '/MeusProjetos/hub_pb/dados'
+# Obter o caminho absoluto do diretório do script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Combinar o caminho com o nome do arquivo para obter o caminho completo
+excel_file = os.path.join(script_dir, 'dados', 'ens_sup.xlsx')
+
+# Ler o Excel em um DataFrame
+ens_sup = pd.read_excel(excel_file)
 
 # Arredondando
-ens_sup = pd.read_excel(f"{root}{path}/ens_sup.xlsx")
 ens_sup['taxa'] = ens_sup['taxa'].round(0)
 
 # DataFrame com a logintude dos estados
