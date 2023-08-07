@@ -7,7 +7,6 @@ import plotly as plt
 import json
 from urllib.request import urlopen
 import plotly.graph_objects as go
-from IPython.display import display, HTML
 
 #-------------------------------------------------------------------------------------------------------------
 # Manipulação e importação dos dados
@@ -136,7 +135,12 @@ with col1:
     
     # Criação da tabela HTML
     html_table = df_tab_regiao.to_html(index=False)
-    display(HTML(html_table))
+    
+    # Crie um arquivo HTML e escreva o conteúdo da tabela
+    with open('tabela_regiao.html', 'w') as f:
+        f.write('<html><head></head><body>')
+        f.write(html_table)
+        f.write('</body></html>')
     
 with col2:
     st.write("Ao lado, é mostrado a taxa de estudantes de tecnologia para as 5 grandes regiões brasileiras, as taxas ao lado leva em consideração todo o período de análise (2012-2021). Como é visto, as região sul e sudeste apresentam as maiores taxas, a região norte é aquela com a menor taxa do país.")
