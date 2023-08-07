@@ -15,25 +15,16 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 # Manipulação e importação dos dados
 #-------------------------------------------------------------------------------------------------------------
 
-# Get the current working directory
+# Definindo diretório
 root = os.getcwd()
-
-# Check if the current OS is Windows (NT) or not (for Unix-like systems)
-if os.name == 'nt':
-    path = os.path.join(root, 'C:/Users/joaos/Documents/MeusProjetos/hub_pb/dados')  # Replace 'path' with the actual path for Windows
+if root[0] == '/':
+    root = '/MeusProjetos/hub_pb/'
 else:
-    path = os.path.abspath('../..')
-
-# Define the name of the Excel file
-file_name = 'ens_sup.xlsx'
-
-# Combine the path and file name to get the full file path
-excel_file = os.path.join(path, file_name)
-
-# Read the Excel file into a DataFrame
-ens_sup = pd.read_excel(excel_file)
+    root = os.path.abspath('../..')
+path = '/MeusProjetos/hub_pb/dados'
 
 # Arredondando
+ens_sup = pd.read_excel(f"{root}{path}/ens_sup.xlsx")
 ens_sup['taxa'] = ens_sup['taxa'].round(0)
 
 # DataFrame com a logintude dos estados
