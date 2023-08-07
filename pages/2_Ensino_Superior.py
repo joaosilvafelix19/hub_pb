@@ -29,7 +29,7 @@ ens_sup = pd.read_excel(excel_file)
 
 # Arredondando
 ens_sup['taxa'] = ens_sup['taxa'].round(0)
-dados_regisoes = ens_sup
+dados_regioes = ens_sup
 
 # DataFrame com a logintude dos estados
 soybean = pd.read_csv('https://raw.githubusercontent.com/nayanemaia/Dataset_Soja/main/soja%20sidra.csv')
