@@ -7,9 +7,7 @@ import plotly as plt
 import json
 from urllib.request import urlopen
 import plotly.graph_objects as go
-
 from IPython.display import display, HTML
-
 
 #-------------------------------------------------------------------------------------------------------------
 # Manipulação e importação dos dados
