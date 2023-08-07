@@ -20,7 +20,7 @@ root = os.getcwd()
 if root[0] == '/':
     root = '/'
 else:
-    root = os.path.abspath('../..')
+    root = os.path.abspath('....')
 path = '/MeusProjetos/hub_pb/dados'
 
 # Arredondando
