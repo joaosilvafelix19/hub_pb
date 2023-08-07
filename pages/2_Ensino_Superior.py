@@ -124,7 +124,7 @@ fig_regioes = px.line(regioes, x='ano', y="taxa", title='', color='regiao',
                  })
 st.plotly_chart(fig_regioes, use_container_width=True)
 
-col1, col2 = st.columns(2)
+col1, col2 = st.beta_columns([2, 3])
 
 with col1:
     tab_regiao = dados_regioes.groupby("regiao")["taxa"].mean().reset_index()
@@ -136,7 +136,7 @@ with col1:
     df_tab_regiao = pd.DataFrame(tab_regiao)
 
     # Exibição usando Streamlit
-    st.subtitle('Tabela de Região')
+    st.title('Tabela de Região')
     st.dataframe(df_tab_regiao)
         
 with col2:
