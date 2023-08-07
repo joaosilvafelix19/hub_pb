@@ -8,7 +8,7 @@ import json
 from urllib.request import urlopen
 import plotly.graph_objects as go
 
-from st_aggrid import AgGrid
+from IPython.display import display, HTML
 
 #-------------------------------------------------------------------------------------------------------------
 # Manipulação e importação dos dados
@@ -134,7 +134,11 @@ st.title('Taxa de estudantes de tecnologia')
 col1, col2 = st.columns(2)
 
 with col1:
-    AgGrid(tab_regiao)
+    # Criação da representação HTML da tabela
+    html_table = tab_regiao.to_html(index=False)
+
+    # Exibição da tabela usando HTML
+    display(HTML(html_table))
    
 with col2:
     st.write("Ao lado, é mostrado a taxa de estudantes de tecnologia para as 5 grandes regiões brasileiras, as taxas ao lado leva em consideração todo o período de análise (2012-2021). Como é visto, as região sul e sudeste apresentam as maiores taxas, a região norte é aquela com a menor taxa do país.")
