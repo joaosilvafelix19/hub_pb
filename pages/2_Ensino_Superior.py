@@ -8,8 +8,6 @@ import json
 from urllib.request import urlopen
 import plotly.graph_objects as go
 
-import tkinter as tk
-from tkinter import scrolledtext
 
 #-------------------------------------------------------------------------------------------------------------
 # Manipulação e importação dos dados
