@@ -129,7 +129,6 @@ col1, col2 = st.columns(2)
 
 with col1:
     tab_regiao = dados_regioes.groupby("regiao")["taxa"].mean()
-    tab_regiao = pd.DataFrame(tab_regiao)
     tab_regiao = tab_regiao.reset_index(level=0)
     tab_regiao = tab_regiao.sort_values(by=['taxa'], ascending=False)
     tab_regiao['taxa'] = tab_regiao['taxa'].round(2)
