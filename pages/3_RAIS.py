@@ -8,8 +8,6 @@ import plotly as plt
 
 import plotly.graph_objects as go
 
-from st_aggrid import AgGrid
-from st_aggrid.grid_options_builder import GridOptionsBuilder
 
 #-------------------------------------------------------------------------------------------------------------
 # Manipulação e importação dos dados
@@ -17,15 +15,12 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 
 # Obter o caminho absoluto para a pasta "dados"
 path = os.path.abspath('dados')
-
-# Nome do arquivo Excel
 file_name = 'rais.xlsx'
-
-# Combinar o caminho com o nome do arquivo para obter o caminho completo
 excel_file = os.path.join(path, file_name)
-
-# Ler o Excel em um DataFrame
 rais = pd.read_excel(excel_file)
+
+file_name2 = '2021.xlsx'
+excel_file2 = os.path.join(path, file_name2)
 
 
 st.title("Relação Anual de Informações Sociais - RAIS")
@@ -84,7 +79,7 @@ st.header('Profissionais por capital - 2021')
 st.write("Por fim, verifica-se como estão distribuidos os tipos de profissionais de tecnologia por capital para o ano de 2021. As profissões são definidas pela Classificação Brasileira de Ocupações (CBO) de 2002 (*).")
 
 # Importando os dados
-rais2021 = pd.read_excel(excel_file, skiprows=1)
+rais2021 = pd.read_excel(excel_file2, skiprows=1)
 
 # removendo os dados faltantes
 rais2021 = rais2021.dropna()
