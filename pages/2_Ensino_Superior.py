@@ -136,7 +136,7 @@ with col1:
     df_tab_regiao = pd.DataFrame(tab_regiao)
     
     # Criação da tabela HTML
-    html_table = df_tab_regiao.to_html(index=False)
+    html_table = df_tab_regiao.to_html(index=True)
     display(HTML(html_table))
     
 with col2:
