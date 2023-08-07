@@ -15,18 +15,17 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 # Manipulação e importação dos dados
 #-------------------------------------------------------------------------------------------------------------
 
-# Definindo diretório
-#os.chdir("C:\\Users\\joaos\\Documents\\MeusProjetos\\hub_pb\\dados")
+# Obter o caminho absoluto para a pasta "dados"
+path = os.path.abspath('dados')
 
-root = os.getcwd()
-if root[0] == '/':
-    root = '/app/hub_pb/'
-else:
-    root = os.path.abspath('../..')
-path = '/dados'
+# Nome do arquivo Excel
+file_name = 'rais.xlsx'
 
-# Importando os dados
-rais = pd.read_excel(f"{root}{path}/rais.xlsx")
+# Combinar o caminho com o nome do arquivo para obter o caminho completo
+excel_file = os.path.join(path, file_name)
+
+# Ler o Excel em um DataFrame
+rais = pd.read_excel(excel_file)
 
 
 st.title("Relação Anual de Informações Sociais - RAIS")
@@ -57,7 +56,7 @@ st.header("Quantidade de profissionais por região")
 st.write("Abaixo é mostrado a quantidade total de trabalhadores formais na área de tecnologia por região (apenas as capitais), dados as profissões mencionados acima. Como é visto abaixo, As capitais da região sudeste concentram uma grande quantidade desses profisionais.")
 
 # Importando os dados
-dados_regioes = pd.read_excel(f"{root}{path}/rais.xlsx")
+dados_regioes = pd.read_excel(excel_file)
 
 # Média por região e por ano
 dados_regioes = pd.DataFrame(dados_regioes.groupby(["regiao","ano"])["total"].sum())
