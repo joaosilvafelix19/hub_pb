@@ -133,11 +133,11 @@ st.title('Taxa de estudantes de tecnologia')
 col1, col2 = st.columns(2)
 with col1:
     st.title('Tabela de Região')
-    gb = GridOptionsBuilder.from_dataframe(df_tab_regiao)
+    gb = GridOptionsBuilder.from_dataframe(tab_regiao)
     gb.configure_pagination(enabled=True)
     gb.configure_default_column(editable=True, groupable=True)
     gridoptions = gb.build()
-    AgGrid(df_tab_regiao, gridOptions=gridoptions, fit_columns_on_grid_load=True)
+    AgGrid(tab_regiao, gridOptions=gridoptions, fit_columns_on_grid_load=True)
    
 with col2:
     st.write("Ao lado, é mostrado a taxa de estudantes de tecnologia para as 5 grandes regiões brasileiras, as taxas ao lado leva em consideração todo o período de análise (2012-2021). Como é visto, as região sul e sudeste apresentam as maiores taxas, a região norte é aquela com a menor taxa do país.")
