@@ -84,7 +84,7 @@ st.header('Profissionais por capital - 2021')
 st.write("Por fim, verifica-se como estão distribuidos os tipos de profissionais de tecnologia por capital para o ano de 2021. As profissões são definidas pela Classificação Brasileira de Ocupações (CBO) de 2002 (*).")
 
 # Importando os dados
-rais2021 = pd.read_excel(f"{root}{path}/2021.xlsx", skiprows=1)
+rais2021 = pd.read_excel(excel_file)
 
 # removendo os dados faltantes
 rais2021 = rais2021.dropna()
