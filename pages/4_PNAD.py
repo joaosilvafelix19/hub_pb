@@ -166,6 +166,7 @@ nd = nd[['uf', 'taxa']]
 nd.rename(columns={'uf':'Estado/Capital', 'taxa':'Taxa 100 000 Habitantes'}, inplace=True)
 nd = nd.sort_values(by=['Taxa 100 000 Habitantes'], ascending=False)
 nd['Taxa 100 000 Habitantes'] = nd['Taxa 100 000 Habitantes'].round(0)
+nd = nd[['Estado/Capital', 'Taxa 100 000 Habitantes']]
 
 # Parte 6
 st.dataframe(nd)
