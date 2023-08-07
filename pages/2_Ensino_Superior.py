@@ -8,8 +8,8 @@ import json
 from urllib.request import urlopen
 import plotly.graph_objects as go
 
-from st_aggrid import AgGrid
-from st_aggrid.grid_options_builder import GridOptionsBuilder
+import tkinter as tk
+from tkinter import scrolledtext
 
 #-------------------------------------------------------------------------------------------------------------
 # Manipulação e importação dos dados
@@ -127,18 +127,23 @@ st.plotly_chart(fig_regioes, use_container_width=True)
 
 col1, col2 = st.columns(2)
 
+# Cria a janela
+root = tk.Tk()
+root.title("Visualização do DataFrame")
+
 with col1:
     tab_regiao = dados_regioes.groupby("regiao")["taxa"].mean().reset_index()
     tab_regiao = tab_regiao.sort_values(by=['taxa'], ascending=False)
     tab_regiao['taxa'] = tab_regiao['taxa'].round(2)
     tab_regiao.rename({'regiao': 'Região', 'taxa':'Taxa'}, axis=1, inplace=True)
     
-    # Converta a Series tab_regiao para um DataFrame
-    df_tab_regiao = pd.DataFrame(tab_regiao)
-    
-    # Use o DataFrame convertido com o AgGrid
-    AgGrid(df_tab_regiao, gridOptions=gridoptions, fit_columns_on_grid_load=True,
-           allow_unsafe_jscode=True)
+    # Cria um widget de texto rolável para exibir o DataFrame
+    text_widget = scrolledtext.ScrolledText(root, width=40, height=10)
+    text_widget.insert(tk.END, str(tab_regiao))
+    text_widget.pack()
+
+# Inicia a interface gráfica
+root.mainloop()
     
 with col2:
     st.write("Ao lado, é mostrado a taxa de estudantes de tecnologia para as 5 grandes regiões brasileiras, as taxas ao lado leva em consideração todo o período de análise (2012-2021). Como é visto, as região sul e sudeste apresentam as maiores taxas, a região norte é aquela com a menor taxa do país.")
