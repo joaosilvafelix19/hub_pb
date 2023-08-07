@@ -21,7 +21,7 @@ if root[0] == '//':
     root = '//'
 else:
     root = os.path.abspath('../..')
-path = '/MeusProjetos/hub_pb/dados'
+path = 'C:/Users/joaos/Documents/MeusProjetos/hub_pb/dados'
 
 # Arredondando
 ens_sup = pd.read_excel(f"{root}{path}/ens_sup.xlsx")
