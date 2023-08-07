@@ -171,8 +171,5 @@ nd = nd.sort_values(by=['Taxa 100 000 Habitantes'], ascending=False)
 nd['Taxa 100 000 Habitantes'] = nd['Taxa 100 000 Habitantes'].round(0)
 
 # Parte 6
-gb = GridOptionsBuilder.from_dataframe(nd)
-gb.configure_pagination(enabled=True)
-gb.configure_default_column(editable=True, groupable=True)
-gridoptions = gb.build()
-AgGrid(nd, gridOptions=gridoptions, fit_columns_on_grid_load = True)
+html_table = nd.to_html(index=False)
+st.write(html_table, unsafe_allow_html=True)
