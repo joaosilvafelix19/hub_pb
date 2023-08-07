@@ -137,7 +137,8 @@ with col1:
     df_tab_regiao = pd.DataFrame(tab_regiao)
     
     # Use o DataFrame convertido com o AgGrid
-    AgGrid(df_tab_regiao, gridOptions=gridoptions, fit_columns_on_grid_load=True)
+    AgGrid(df_tab_regiao, gridOptions=gridoptions, fit_columns_on_grid_load=True,
+           allow_unsafe_jscode=True)
     
 with col2:
     st.write("Ao lado, é mostrado a taxa de estudantes de tecnologia para as 5 grandes regiões brasileiras, as taxas ao lado leva em consideração todo o período de análise (2012-2021). Como é visto, as região sul e sudeste apresentam as maiores taxas, a região norte é aquela com a menor taxa do país.")
