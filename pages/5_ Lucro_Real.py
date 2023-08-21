@@ -4,7 +4,7 @@ import plotly.express as px
 
 st.title("CNPJ's com regime tributário do tipo 'Lucro Real'")
 
-st.write("Abaixo é mostrado quantos CNPJ's o regime tributário é do tipo 'Lucro real no estado da Paraíba entre os anos de 2014 e 2021'. Os dados estão disponíveis em ...")
+st.text("Abaixo é mostrado quantos CNPJ's o regime tributário é do tipo 'Lucro real no estado da Paraíba entre os anos de 2014 e 2021'. Os dados estão disponíveis no portal de dados abertos do gverno federal")
 
 
 ano = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021]
