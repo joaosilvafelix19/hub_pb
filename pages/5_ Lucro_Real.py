@@ -2,7 +2,7 @@ import streamlit as st
 import plotly.express as px
 
 
-st.title("Regime tributário do tipo 'Lucro Real'")
+st.title("CNPJ's com regime tributário do tipo 'Lucro Real'")
 
 st.write("Abaixo é mostrado quantos CNPJ's são do tipo 'Lucro real no estado da Paraíba entre os anos de 2014 e 2021' ")
 
